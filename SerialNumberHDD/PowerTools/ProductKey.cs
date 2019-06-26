@@ -69,8 +69,10 @@ namespace Anh.PowerTools
 				if (bSuccess)
 				{
 					dbConn.Commit();
+					MessageBox.Show("Success");
 				}else
 				{
+					MessageBox.Show("Fail");
 					dbConn.Rollback();
 				}
 
@@ -79,6 +81,7 @@ namespace Anh.PowerTools
 			{
 				dbConn.Rollback();
 				Debug.WriteLine(ex.ToString());
+				MessageBox.Show("Error");
 			}
 			finally
 			{

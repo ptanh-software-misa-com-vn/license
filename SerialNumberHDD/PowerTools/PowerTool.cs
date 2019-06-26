@@ -15,6 +15,7 @@ namespace Anh.PowerTools
         public PowerTool()
         {
             InitializeComponent();
+			
             dataGridView1.Rows.Add("18020002", "Dion Software Co., Ltd", "3704 -6465-9901-8165-7819-7135", "Not Authenticated", "Athentication Procedure");
         }
 

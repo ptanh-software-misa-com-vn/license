@@ -83,15 +83,27 @@ namespace Anh.PowerTools
             try
             {
                 dbConn.Open();
+				dbConn.BeginTran();
                 var bSuccess = ser.RegisterLicense(dbConn, lic, ser.GetDriveSerialNumber());
-
+				if (bSuccess)
+				{
+					dbConn.Commit();
+					MessageBox.Show("Active success");
+				}
+				else
+				{
+					dbConn.Rollback();
+					MessageBox.Show("Active fail");
+				}
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
-            }
+				MessageBox.Show("Error");
+			}
             finally
             {
+				dbConn.DisposeTran();
                 dbConn.Close();
             }
         }

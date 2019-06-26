@@ -302,6 +302,7 @@ namespace Anh.License
             if (GetExistLicense1(adbConn, aLicenseVerify.LicenseKey, aLicenseVerify.ProductCd) > 0)
             {
                 sSQL = UpdateLicense1SQL();
+				myCmd.CommandText = sSQL;
                 myCmd.Parameters.Clear();
                 myCmd.Parameters.Add("license_key", OracleDbType.Varchar2).Value = aLicenseVerify.LicenseKey;
                 myCmd.Parameters.Add("product_cd", OracleDbType.Varchar2).Value = aLicenseVerify.ProductCd;
@@ -315,7 +316,8 @@ namespace Anh.License
             else
             {
                 sSQL = InsertLicense1SQL();
-                myCmd.Parameters.Clear();
+				myCmd.CommandText = sSQL;
+				myCmd.Parameters.Clear();
                 myCmd.Parameters.Add("license_key", OracleDbType.Varchar2).Value = aLicenseVerify.LicenseKey;
                 myCmd.Parameters.Add("product_cd", OracleDbType.Varchar2).Value = aLicenseVerify.ProductCd;
                 myCmd.Parameters.Add("renban", OracleDbType.Int32).Value = 1;
@@ -428,7 +430,8 @@ namespace Anh.License
             if (GetExistLicense2(adbConn, aLicenseVerify.LicenseKey, aLicenseVerify.ProductCd, asSerialHDD) > 0)
             {
                 sSQL = UpdateLicense2SQL();
-                myCmd.Parameters.Clear();
+				myCmd.CommandText = sSQL;
+				myCmd.Parameters.Clear();
                 myCmd.Parameters.Add("license_key", OracleDbType.Varchar2).Value = aLicenseVerify.LicenseKey;
                 myCmd.Parameters.Add("product_cd", OracleDbType.Varchar2).Value = aLicenseVerify.ProductCd;
                 myCmd.Parameters.Add("renban", OracleDbType.Int32).Value = 1;
@@ -441,7 +444,8 @@ namespace Anh.License
             else
             {
                 sSQL = InsertLicense2SQL();
-                myCmd.Parameters.Clear();
+				myCmd.CommandText = sSQL;
+				myCmd.Parameters.Clear();
                 myCmd.Parameters.Add("license_key", OracleDbType.Varchar2).Value = aLicenseVerify.LicenseKey;
                 myCmd.Parameters.Add("product_cd", OracleDbType.Varchar2).Value = aLicenseVerify.ProductCd;
                 myCmd.Parameters.Add("renban", OracleDbType.Int32).Value = 1;
